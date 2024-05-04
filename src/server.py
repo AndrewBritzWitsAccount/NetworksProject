@@ -17,6 +17,7 @@ BEGIN = "START"
 # Lists for Storing Information
 clientsLength = 0
 clients = []
+clientCount = 0
 clientScoreArray =[0,0]
 clientScore =0
 clientAnswers = {} 
@@ -188,6 +189,7 @@ def main():
         conn, client_ID = server.accept()  # Accept incoming connections
         thread = threading.Thread(target=handle_client, args=(conn, client_ID))
         thread.start()
+        clientCount +=1
         print(f"[ACTIVE CONNECTIONS] {threading.active_count() - 1}")  # Keeping track of client threads
 
 
